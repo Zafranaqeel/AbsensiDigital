@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 12, 2026 at 06:45 PM
+-- Generation Time: May 17, 2026 at 02:08 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -36,9 +36,23 @@ CREATE TABLE `absensi` (
   `latitude` varchar(50) DEFAULT NULL,
   `longitude` varchar(50) DEFAULT NULL,
   `jarak` float DEFAULT NULL,
-  `status` enum('hadir','telat','izin') DEFAULT 'hadir',
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `status` enum('hadir','terlambat','izin','sakit') DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `surat` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `absensi`
+--
+
+INSERT INTO `absensi` (`id`, `user_id`, `tanggal`, `jam_masuk`, `jam_keluar`, `latitude`, `longitude`, `jarak`, `status`, `created_at`, `surat`) VALUES
+(2, 3, '2026-05-15', '06:57:09', NULL, '-6.8444467934278475', '108.6212129660167', 83, '', '2026-05-14 23:57:09', NULL),
+(3, 3, '2026-05-16', '08:12:42', NULL, '-6.8444467934278475', '108.6212129660167', 83, '', '2026-05-16 01:12:42', NULL),
+(4, 3, '2026-05-16', '08:38:43', NULL, '-6.844441492501955', '108.6212150659229', 84, '', '2026-05-16 01:38:43', NULL),
+(5, 3, '2026-05-16', '08:40:46', NULL, '-6.844441492501955', '108.6212150659229', 84, '', '2026-05-16 01:40:46', NULL),
+(6, 3, '2026-05-16', '08:40:49', NULL, '-6.844441492501955', '108.6212150659229', 84, '', '2026-05-16 01:40:49', NULL),
+(7, 3, '2026-05-16', '08:41:01', NULL, '-6.844446581687517', '108.6212138374988', 84, '', '2026-05-16 01:41:01', NULL),
+(8, 3, '2026-05-17', '19:00:15', NULL, '-6.844447279838035', '108.62120800835135', 83, 'terlambat', '2026-05-17 12:00:15', '');
 
 -- --------------------------------------------------------
 
@@ -88,7 +102,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `absensi`
 --
 ALTER TABLE `absensi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `users`

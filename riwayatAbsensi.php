@@ -577,10 +577,9 @@ $stats = mysqli_fetch_assoc($stat_result);
                         $status_class = '';
                         switch($row['status']) {
                             case 'Hadir': $status_class = 'status-hadir'; break;
-                            case 'Terlambat': $status_class = 'status-terlambat'; break;
+                            case 'Telat': $status_class = 'status-terlambat'; break;
                             case 'Alpha': $status_class = 'status-alpha'; break;
                             case 'Izin': $status_class = 'status-izin'; break;
-                            case 'Sakit': $status_class = 'status-sakit'; break;
                         }
                     ?>
                     <tr>
